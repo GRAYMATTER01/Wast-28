@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+We Want Waste - Skip Hire Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a modern, responsive web app for skip hire, built with React, TypeScript, and Tailwind CSS. The design uses a fresh purple and mint color scheme to keep the experience clean, simple, and user-friendly.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## How I Built It
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+I approached this project like it was a real production app — focusing on writing clean, modular code that’s easy to maintain and performs well. Here’s a rundown of what I did and why:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Started with a React + TypeScript Template**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   * I kicked things off using Create React App with TypeScript so I’d catch type errors early on.
+   * Removed extra boilerplate files to keep the project lightweight.
+
+2. **Set Up Tailwind CSS**
+
+   * Installed Tailwind and created a config file to customize the colors for the purple and mint palette.
+   * Added Tailwind’s base styles to `index.css` so I could use its utility classes throughout.
+
+3. **Defined a Clear Data Model**
+
+   * Created a `SkipOption` interface to clearly define the data shape for each skip, including size, pricing, area, availability, and more.
+   * This helped keep data consistent and made it easy to mock API responses.
+
+4. **Built Core UI Components**
+
+   * **SkipCard:** Shows skip images and details, highlights if selected, and indicates if a skip is forbidden.
+   * **SearchBar:** Lets users filter skips by size or keywords, with input debounced for better performance.
+   * **FilterTabs:** Lets users filter skips by size category (small, medium, large). On mobile, it slides up as a bottom sheet.
+   * **SortMenu:** Dropdown to sort skips by size or price, ascending or descending.
+   * **ConfirmModal:** A reusable modal to confirm skip selection, with a friendly note about images being illustrative.
+   * **ProgressTracker:** A simple stepper showing the user’s progress through the booking steps.
+
+5. **Mock API and Fetch Logic**
+
+   * Created a fake `fetchSkips` function that returns hardcoded skip data.
+   * On page load, the app fetches this data and shows skeleton loaders while waiting.
+
+6. **Filtering, Sorting, and Selection Logic**
+
+   * Managed states for skips, filtered skips, search term, category filter, sort option, and the selected skip.
+   * Used a single effect to update the filtered list whenever any of these states change.
+   * Rendered the filtered list as a responsive grid of skip cards.
+
+7. **Selection Confirmation Flow**
+
+   * When a skip is selected, a confirmation modal pops up reminding users the images are just examples.
+   * Upon confirmation, the selection is logged and a toast notification appears.
+
+8. **Responsive and Accessible Design**
+
+   * Added proper ARIA labels and keyboard focus styles to interactive elements.
+   * The grid adjusts from one column on mobile up to three columns on larger screens.
+   * Images have alt text for screen readers.
+
+9. **Custom Tailwind Config**
+
+   * Extended Tailwind’s default colors with custom violet and mint shades, making it easy to apply consistent branding colors.
+
+10. **Final Polish**
+
+    * Added loading skeletons to improve perceived performance.
+    * Improved typography with Tailwind’s prose classes for better readability.
+    * Tested on Chrome and Safari mobile simulators to ensure it looks great everywhere.
+
+By building it this way, the app is clean, well-typed, and easy to extend with features like real APIs or user authentication down the line.
+
+---
+
+## How to Run the Project
+
+### What You’ll Need
+
+* Node.js version 18 or higher
+* pnpm installed globally (`npm install -g pnpm`)
+
+### Steps
+
+1. Clone the repo:
+
+   ```bash
+   git clone <repository-url>
+   ```
+2. Go into the project folder:
+
+   ```bash
+   cd <repo-folder>
+   ```
+3. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+4. Start the app:
+
+   ```bash
+   pnpm start
+   ```
+5. Open your browser and visit `http://localhost:3000` to see it in action!
+
+---
+
+If you want me to help add anything else or make it even more casual/professional, just say!
