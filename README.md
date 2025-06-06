@@ -12,12 +12,12 @@ I approached this project like it was a real production app — focusing on writ
 
 1. **Started with a React + TypeScript Template**
 
-   * I kicked things off using Create React App with TypeScript so I’d catch type errors early on.
+   * I kicked things off with creating react app using vite with TypeScript so I’d catch type errors early on.
    * Removed extra boilerplate files to keep the project lightweight.
 
 2. **Set Up Tailwind CSS**
 
-   * Installed Tailwind and created a config file to customize the colors for the purple and mint palette.
+
    * Added Tailwind’s base styles to `index.css` so I could use its utility classes throughout.
 
 3. **Defined a Clear Data Model**
@@ -56,11 +56,9 @@ I approached this project like it was a real production app — focusing on writ
    * The grid adjusts from one column on mobile up to three columns on larger screens.
    * Images have alt text for screen readers.
 
-9. **Custom Tailwind Config**
 
-   * Extended Tailwind’s default colors with custom violet and mint shades, making it easy to apply consistent branding colors.
 
-10. **Final Polish**
+9. **Final Polish**
 
     * Added loading skeletons to improve perceived performance.
     * Improved typography with Tailwind’s prose classes for better readability.
@@ -68,16 +66,16 @@ I approached this project like it was a real production app — focusing on writ
 
 By building it this way, the app is clean, well-typed, and easy to extend with features like real APIs or user authentication down the line.
 
----
 
-## How to Run the Project
 
-### What You’ll Need
+How to Run the Project
+
+What You’ll Need
 
 * Node.js version 18 or higher
 * pnpm installed globally (`npm install -g pnpm`)
 
-### Steps
+Steps
 
 1. Clone the repo:
 
@@ -97,10 +95,8 @@ By building it this way, the app is clean, well-typed, and easy to extend with f
 4. Start the app:
 
    ```bash
-   pnpm start
+   pnpm dev
    ```
-5. Open your browser and visit `http://localhost:3000` to see it in action!
 
----
 
-If you want me to help add anything else or make it even more casual/professional, just say!
+
